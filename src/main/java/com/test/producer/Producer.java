@@ -27,9 +27,10 @@ public class Producer {
     public void produce() {
 //        String letters = "abcdef";
 //        String message = "message " + letters.charAt(new Random().nextInt(letters.length()));
-        BigDecimal bigDecimal = new BigDecimal(Math.random() * 20);
-        System.out.println("Sending message " + bigDecimal);
-        source.output().send(new GenericMessage<>(bigDecimal));
+        double number = Math.random() * 20;
+        Marketcap marketcap = new Marketcap(number);
+        System.out.println("Sending message " + marketcap);
+        source.output().send(new GenericMessage<>(marketcap));
     }
 
 }

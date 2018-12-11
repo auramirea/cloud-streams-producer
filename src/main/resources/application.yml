@@ -1,0 +1,15 @@
+spring.cloud.stream:
+  bindings:
+    output:
+      destination: topic_input
+      contentType: application/*+avro
+  schemaRegistryClient:
+    endpoint: http://localhost:8081
+  schema:
+    avro:
+      schema-locations: classpath:avro/event.avsc
+
+
+
+
+
