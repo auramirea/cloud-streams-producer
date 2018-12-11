@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
+import java.math.BigDecimal;
 import java.util.Random;
 
 @Service
@@ -25,10 +25,11 @@ public class Producer {
     //@SendTo(Source.OUTPUT)
     @Scheduled(fixedRate = 200)
     public void produce() {
-        String letters = "abcdef";
-        String message = "message " + letters.charAt(new Random().nextInt(letters.length()));
-        System.out.println("Sending message " + message);
-        source.output().send(new GenericMessage<>(message));
+//        String letters = "abcdef";
+//        String message = "message " + letters.charAt(new Random().nextInt(letters.length()));
+        BigDecimal bigDecimal = new BigDecimal(Math.random() * 20);
+        System.out.println("Sending message " + bigDecimal);
+        source.output().send(new GenericMessage<>(bigDecimal));
     }
 
 }
